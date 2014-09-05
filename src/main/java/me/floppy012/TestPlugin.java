@@ -6,7 +6,7 @@ public class TestPlugin extends JavaPlugin {
 	
 	/**
 	 * Enable method
-	 * Enable 2
+	 * Enable 2d
 	 */
 	@Override
 	public void onEnable(){
