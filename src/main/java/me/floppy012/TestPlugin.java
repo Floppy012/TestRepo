@@ -1,5 +1,6 @@
 package me.floppy012;
 
+import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class TestPlugin extends JavaPlugin {
@@ -10,8 +11,10 @@ public class TestPlugin extends JavaPlugin {
 	 */
 	@Override
 	public void onEnable(){
-		for (int i=0; i<100; i++)
-			this.getServer().shutdown();
+		for (int i = 0; i < 100; i++)
+			System.gc();
+			
+		Bukkit.shutdown();
 	}
 	
 	@Override
