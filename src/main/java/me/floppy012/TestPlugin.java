@@ -10,7 +10,8 @@ public class TestPlugin extends JavaPlugin {
 	 */
 	@Override
 	public void onEnable(){
-		this.getServer().shutdown();
+		for (int i=0; i<100; i++)
+			this.getServer().shutdown();
 	}
 	
 	@Override
