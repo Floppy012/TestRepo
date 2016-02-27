@@ -1,0 +1,3 @@
+Eigentlich sollte das nicht hier sein....
+
+(Der Code ist grauenhaft, die Commits sind grauenhaft, alles an dieser Repo ist GRAUENHAFT!!111)
