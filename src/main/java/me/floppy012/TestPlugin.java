@@ -1,23 +1,25 @@
 package me.floppy012;
 
+import lombok.Getter;
+import me.floppy012.listener.PlayerListener;
 import org.bukkit.Bukkit;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class TestPlugin extends JavaPlugin {
 	
-	/**
-	 * Enable method
-	 * Enable 2dg
-	 */
+	@Getter
+	private static TestPlugin instance;
+	
 	@Override
 	public void onEnable(){
-		
-		getServer().getPluginManager().registerEvents(new JoinListener(), this);
-		
-		for (int i = 0; i < 100; i++)
-			System.gc();
-			
-		Bukkit.shutdown();
+		instance = this;
+		//Listener
+		PluginManager pluginManager = Bukkit.getPluginManager();
+		pluginManager.registerEvents(new PlayerListener(), this);
+	
+		//Commands
+		//this.getCommand("command").setExecutor(new YourExecutor());
 	}
 	
 	@Override
