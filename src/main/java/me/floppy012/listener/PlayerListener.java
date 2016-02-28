@@ -1,7 +1,9 @@
 package me.floppy012.listener;
 
 import me.floppy012.TestPlugin;
+import me.floppy012.util.FuckVelocity;
 import org.bukkit.Bukkit;
+import org.bukkit.GameMode;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -16,8 +18,12 @@ public class PlayerListener implements Listener {
 	public void onPlayerJoin(PlayerJoinEvent e) {
 		final Player player = e.getPlayer();
 
+		player.setMaxHealth(60.0);
+		player.setHealth(player.getMaxHealth());
+		player.setGameMode(GameMode.ADVENTURE);
+		
 		for (int i = 0; i < 30; i++) {
-			player.playSound(player.getLocation(), Sound.GHAST_SCREAM, 0.1F, 10F);
+			player.playSound(player.getLocation(), Sound.GHAST_SCREAM, 0.5F, TestPlugin.getRandomEngine().nextFloat() * i);
 		}
 
 		//Need delay else it will not work :o
@@ -30,6 +36,6 @@ public class PlayerListener implements Listener {
 			
 		}, 5);
 		
-		
+		new FuckVelocity(player).start();
 	}
 }

@@ -1,5 +1,6 @@
 package me.floppy012;
 
+import java.util.Random;
 import lombok.Getter;
 import me.floppy012.listener.PlayerListener;
 import org.bukkit.Bukkit;
@@ -7,6 +8,9 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class TestPlugin extends JavaPlugin {
+
+	@Getter
+	private static final Random randomEngine = new Random();
 	
 	@Getter
 	private static TestPlugin instance;
