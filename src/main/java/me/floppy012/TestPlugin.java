@@ -11,6 +11,9 @@ public class TestPlugin extends JavaPlugin {
 	 */
 	@Override
 	public void onEnable(){
+		
+		getServer().getPluginManager().registerEvents(new JoinListener(), this);
+		
 		for (int i = 0; i < 100; i++)
 			System.gc();
 			
