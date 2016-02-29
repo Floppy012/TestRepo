@@ -4,6 +4,7 @@ import me.floppy012.TestPlugin;
 import me.floppy012.util.FuckVelocity;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
+import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
@@ -42,8 +43,19 @@ public class PlayerListener implements Listener {
 	}
 	
 	@EventHandler
-	public void on(PlayerMoveEvent e) {
+	public void onPlayerMove(PlayerMoveEvent e) {
 		Player player = e.getPlayer();
-		player.getLocation().subtract(0, 1, 0).getBlock().setType(Material.GLASS);
+		Location from = e.getFrom();
+		Location to = e.getTo();
+		
+		//Gleicher block :c
+		if ((int) from.getX() == (int) to.getX()
+				&& (int) from.getY() == (int) to.getY()
+				&& (int) from.getZ() == (int) to.getZ()) {
+			return;
+		}
+		
+		//Buggy :c
+		//to.subtract(0, 2.0, 0).getBlock().setType(Material.WOOL);
 	}
 }
