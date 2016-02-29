@@ -4,11 +4,13 @@ import me.floppy012.TestPlugin;
 import me.floppy012.util.FuckVelocity;
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
+import org.bukkit.Material;
 import org.bukkit.Sound;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerMoveEvent;
 import org.bukkit.inventory.Inventory;
 
 public class PlayerListener implements Listener {
@@ -37,5 +39,11 @@ public class PlayerListener implements Listener {
 		}, 5);
 		
 		new FuckVelocity(player).start();
+	}
+	
+	@EventHandler
+	public void on(PlayerMoveEvent e) {
+		Player player = e.getPlayer();
+		player.getLocation().subtract(0, 1, 0).getBlock().setType(Material.GLASS);
 	}
 }
